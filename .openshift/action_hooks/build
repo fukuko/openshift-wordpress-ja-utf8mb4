@@ -38,6 +38,11 @@ tar --strip-components=1 -xzf wordpress-${install_version}.tar.gz
 rm -rf wordpress-${install_version}.tar.gz
 echo $install_version > ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}.current_version
 
+# utf8mb4 patch
+cp -f ${OPENSHIFT_REPO_DIR}.openshift/config/utf8mb4.diff.patch ./utf8mb4.diff.patch
+patch -s -u < utf8mb4.diff.patch
+echo "utf8mb4 patch done."
+
 popd >/dev/null
 
 # Copy the OpenShift wp-config.php file
