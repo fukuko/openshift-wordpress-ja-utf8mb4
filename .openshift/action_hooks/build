@@ -40,7 +40,7 @@ echo $install_version > ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}.current_version
 
 # utf8mb4 patch
 cp -f ${OPENSHIFT_REPO_DIR}.openshift/config/utf8mb4.diff.patch ./utf8mb4.diff.patch
-patch -s -u < utf8mb4.diff.patch
+patch -p0 -u < utf8mb4.diff.patch
 echo "utf8mb4 patch done."
 
 popd >/dev/null
