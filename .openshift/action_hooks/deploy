@@ -90,6 +90,9 @@ else
 fi
 
 # Set Global innodb
+/usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "SET GLOBAL character_set_database = utf8mb4;"
+/usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "SET GLOBAL character_set_server = utf8mb4;"
+/usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "SET GLOBAL collation_server = utf8mb4_unicode_ci;"
 /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "SET GLOBAL default_storage_engine=InnoDB;"
 /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "SET GLOBAL innodb_file_format = barracuda;"
 /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" -e "SET GLOBAL innodb_file_per_table = true;"
