@@ -21,3 +21,7 @@ function Admin_lang_change_func() {
 
 }
 
+add_filter('protected_title_format', 'remove_protected');
+function remove_protected($title) {
+	return '%s';
+}
